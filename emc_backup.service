@@ -1,0 +1,12 @@
+[Unit]
+Description=Резервное копирование базы ЭМК
+After=network.target postgresql.service
+RequiresMountsFor=/mnt/nas
+
+[Service]
+Type=oneshot
+User=backupuser
+Group=backup
+ExecStart=/usr/local/bin/emc_backup.sh
+StandardOutput=journal
+StandardError=journal
