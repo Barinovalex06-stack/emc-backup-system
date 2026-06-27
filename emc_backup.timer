@@ -1,0 +1,11 @@
+[Unit]
+Description=Ежедневный запуск резервного копирования ЭМК в 02:00
+Requires=emc_backup.service
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+WakeSystem=false
+
+[Install]
+WantedBy=timers.target
